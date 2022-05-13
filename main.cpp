@@ -23,6 +23,7 @@ void PRINT(T_List* head)
 		std::cout << p->elements << " ";
 		p = p->next;
 	}
+	std::cout << '\n';
 }
 
 void CLEAR(T_List* head)
@@ -44,7 +45,7 @@ bool FIND(T_List* head, int x)
 	{
 		if (p->elements == x)
 		{
-			std::cout << "nayden" << std::endl;
+			std::cout << "has found" << std::endl;
 			return true;
 
 		}
@@ -79,6 +80,92 @@ int main()
 	T_List* head = new T_List;
 	head->next = nullptr;
 
+	int N = 0;
+	int a = 0;
+	
+	std::cout << "press 1 to create the list automatically, press 2 to create the list by yourself: ";
+	std::cin >> a;
+	if (a > 2)
+	{
+		while (a > 2)
+		{
+			std::cout << "press 1 to create the list automatically, press 2 to create the list by yourself: ";
+			std::cin >> a;
+		}
+
+	}
+	else
+		if (a == 1)
+		{
+			std::cout << "the number of values: ";
+			std::cin >> N;
+			for (int i = 0; i < N; i++)
+			{
+				ADD(head, rand() % 10000);
+				
+			}
+			PRINT(head);
+		}
+		else
+			if (a == 2)
+			{
+				std::cout << "the number of values: ";
+				std::cin >> N;
+				for (int i = 0; i < N; i++)
+				{
+					int c = 0;
+					std::cin >> c;
+					ADD(head, c);
+				}
+
+			}
+	std::cout << "press 1 to add the value, press 2 to delete the value, press 3 to find the value, press 4 to exit: ";
+	std::cin >> a;
+
+	while (a != 4)
+	{
+		if (a > 4)
+		{
+			while (a > 4)
+			{
+				std::cout << "press 1 to add the value, press 2 to delete the value, press 3 to find the value, press 4 to exit: ";
+				std::cin >> a;
+			}
+
+		}
+		else
+			if (a == 1)
+			{
+				std::cout << "type the value to add: ";
+				int b = 0;
+				std::cin >> b;
+				ADD(head, b);
+				PRINT(head); 
+				std::cout << "press 1 to add the value, press 2 to delete the value, press 3 to find the value, press 4 to exit: ";
+				std::cin >> a;
+			}
+			else
+				if (a == 2)
+				{
+					std::cout << "type the value to delete: ";
+					int n = 0;
+					std::cin >> n;
+					DELETE(head, n);
+					PRINT(head); 
+					std::cout << "press 1 to add the value, press 2 to delete the value, press 3 to find the value, press 4 to exit: ";
+					std::cin >> a;
+				}
+				else
+					if (a == 3)
+					{
+						std::cout << "type the value to find: ";
+						int m = 0;
+						std::cin >> m;
+						FIND(head, m);
+						std::cout << "press 1 to add the value, press 2 to delete the value, press 3 to find the value, press 4 to exit: ";
+						std::cin >> a;
+					}
+	}
 
 	PRINT(head);
 	//std::cout << std::endl;
