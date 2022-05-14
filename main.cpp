@@ -1,4 +1,5 @@
 #include <iostream>
+#include <chrono>
 
 struct T_List
 {
@@ -77,14 +78,18 @@ void DELETE(T_List* head, int key)
 
 int main()
 {
+	srand(time(NULL));
+
 	T_List* head = new T_List;
 	head->next = nullptr;
 
 	int N = 0;
 	int a = 0;
+	int b = 0;
 
 	std::cout << "press 1 to create the list automatically, press 2 to create the list by yourself: ";
 	std::cin >> a;
+
 	if (a > 2)
 	{
 		while (a > 2)
@@ -119,6 +124,7 @@ int main()
 				}
 
 			}
+
 	std::cout << "press 1 to add the value, press 2 to delete the value, press 3 to find the value, press 4 to exit: ";
 	std::cin >> a;
 
@@ -137,7 +143,6 @@ int main()
 			if (a == 1)
 			{
 				std::cout << "type the value to add: ";
-				int b = 0;
 				std::cin >> b;
 				ADD(head, b);
 				PRINT(head);
@@ -148,9 +153,8 @@ int main()
 				if (a == 2)
 				{
 					std::cout << "type the value to delete: ";
-					int n = 0;
-					std::cin >> n;
-					DELETE(head, n);
+					std::cin >> b;
+					DELETE(head, b);
 					PRINT(head);
 					std::cout << "press 1 to add the value, press 2 to delete the value, press 3 to find the value, press 4 to exit: ";
 					std::cin >> a;
@@ -159,9 +163,8 @@ int main()
 					if (a == 3)
 					{
 						std::cout << "type the value to find: ";
-						int m = 0;
-						std::cin >> m;
-						FIND(head, m);
+						std::cin >> b;
+						FIND(head, b);
 						std::cout << "press 1 to add the value, press 2 to delete the value, press 3 to find the value, press 4 to exit: ";
 						std::cin >> a;
 					}
